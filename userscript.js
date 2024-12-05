@@ -25,7 +25,6 @@ setTimeout((function() {
     window.a30 = new Audio('https://tylerbmusic.github.io/GPWS-files_geofs/30.wav');
     window.a20 = new Audio('https://tylerbmusic.github.io/GPWS-files_geofs/20.wav');
     window.a10 = new Audio('https://tylerbmusic.github.io/GPWS-files_geofs/10.wav');
-    window.aRetard = new Audio('https://tylerbmusic.github.io/GPWS-files_geofs/retard.wav');
     window.a5 = new Audio('https://tylerbmusic.github.io/GPWS-files_geofs/5.wav');
     window.stall = new Audio('https://tylerbmusic.github.io/GPWS-files_geofs/stall.wav');
     window.glideSlope = new Audio('https://tylerbmusic.github.io/GPWS-files_geofs/glideslope.wav');
@@ -56,7 +55,6 @@ setTimeout((function() {
     window.i20 = false;
     window.i10 = false;
     window.i7 = false;
-    window.i5 = false;
     window.gpwsRefreshRate = 100;
     window.willTheDoorFallOff = false;
     window.didAWheelFall = false;
@@ -282,10 +280,6 @@ setTimeout((function() {
                         window.a10.play();
                         window.i10 = true;
                     }
-                    if (!geofs.aircraft.instance.groundContact && ((agl+(geofs.animation.values.verticalSpeed/60)*2) <= 1.0) && !window.i7) { //Retard 2 seconds from touchdown
-                        window.aRetard.play();
-                        window.i7 = true;
-                    }
                     if (isInRange(5, agl) && !window.i5) { //5
                         window.a5.play();
                         window.i5 = true;
@@ -334,9 +328,6 @@ setTimeout((function() {
                     if (window.i10) {
                         window.i10 = false;
                     }
-                    if (window.i7) {
-                        window.i7 = false;
-                    }
                     if (window.i5) {
                         window.i5 = false;
                     }
@@ -357,7 +348,6 @@ setTimeout((function() {
             window.a30.pause();
             window.a20.pause();
             window.a10.pause();
-            window.aRetard.pause();
             window.a5.pause();
             window.stall.pause();
             window.glideSlope.pause();
